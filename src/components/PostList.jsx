@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react"
 import Post from "./Post"
 import NewPostButton from "./NewPostButton"
-import { Routes, Route } from "react-router-dom"
-import axios from "axios";
+
 
 export default function PostList() {
 
   const [post, setPost] = useState([])
   const getPosts = () => {
-    const response = axios.get("http://localhost:7070/posts");
-    const data = response.data;
-    setPost(data);
-
+    fetch('http://localhost:7070/posts')
+    .then((response)=>response.json())
+    .then((data)=>setPost(data))
+    .catch(error=>{
+        console.error(error)
+    });
   }
 
   useEffect(getPosts,[])
