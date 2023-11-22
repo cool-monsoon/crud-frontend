@@ -15,7 +15,16 @@ export default function NewPost() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newCard = {id: 0, content: text};
-    axios.post("http://localhost:7070/posts", newCard);
+    axios.post("http://localhost:7070/posts", newCard)
+    .then(function(response) {
+      if (response) {
+        return response;
+      }
+      throw new Error('No response');
+  })
+    .catch(error => {
+      console.error('Ошибка:', error);
+    });
     navigate('/posts');
   };
 
@@ -38,5 +47,3 @@ export default function NewPost() {
     </div>
   )
 }
-
-
