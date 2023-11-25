@@ -62,7 +62,7 @@ h3 {
   font-size: 0.8rem;
 }
 
-.card, .edit-card {
+.card {
   position: relative;
   width: 30rem;
   height: 10rem;
@@ -75,6 +75,7 @@ h3 {
   background-color: lightgrey;
   color: darkblue;
 }
+
 
 .button-container {
   position: relative;
@@ -96,8 +97,8 @@ h3 {
 
 .close {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: 0px;
+  right: 0px;
   text-align: right;
   font-size: 1rem;
   user-select: none;
